@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <title>Antonio's VochoGame</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>
+                Antonio's VochoGame
+            </h1>
+            <ul>
+                <il>
+                    <h3 id="user">User</h3>
+                </il>
+                <il>
+                    <h3 id="score">0</h3>
+                </il>
+            </ul>
+        </nav>
+    </header>
+    <div id="intro">
+        <input id="text" type="text" placeholder="Introduce your Nickname" maxlength="15" required>
+        <button onclick="submitNick()">Iniciar</button>
+        <h3 id="nickError" style="margin-top: 25px; visibility: hidden;">Please, introduce a valid username</h3>
+    </div>
+
+    <main>
+        <div id="generalContainer">
+            <p>
+                Press the 'Spacebar' to start the game, and Jump.<br>
+                Avoid the road obstacles.<br>
+                Enjoy! and don't forget to visit the repository on GitHub.<br>
+            </p>
+            
+            <div id="gameContainer">
+                <div id="ground">
+                    
+                </div>
+                <div id="vocho">
+        
+                </div>
+                <div id="obstacle">
+                    obstaculo                   
+                </div>
+            </div>
+            <button onclick="playerAnimation()">jugar</button>
+        </div>
+    </main>
+    <script src="script/script.js"></script>
+</body>
+</html>

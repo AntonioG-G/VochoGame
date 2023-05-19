@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-color: #111111;
+}
+
+header {
+  background-color: #111111;
+  padding-top: 25px;
+  color: #111111;
+  border-bottom: solid 3px #F7f7f7;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 15%;
+}
+
+h1 {
+  font-family: "Righteous", cursive;
+  text-align: center;
+  font-size: 60px;
+  color: #F7f7f7;
+}
+
+h3 {
+  font-family: "Righteous", cursive;
+  text-align: center;
+  font-size: 30px;
+  color: #F7f7f7;
+}
+
+main {
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+#generalContainer {
+  width: 70%;
+  margin: 12% auto 0 auto;
+  height: 350px;
+}
+
+#generalContainer p {
+  font-family: "Righteous", cursive;
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 30px;
+  font-weight: bold;
+  color: #F7f7f7;
+}
+
+#intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
+  background-color: #111111;
+  z-index: 2;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+#intro input {
+  font-family: "Righteous", cursive;
+  text-align: center;
+  width: 20%;
+  margin-bottom: 30px;
+  font-size: 30px;
+  background-color: rgba(255, 255, 255, 0);
+  color: #F7f7f7;
+  border-bottom: #F7f7f7 solid 1px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+    visibility: hidden;
+  }
+}
+#gameContainer {
+  position: relative;
+  background: linear-gradient(#65C1EC, #EC8E63 60%);
+  height: 100%;
+}
+
+#ground {
+  position: relative;
+  bottom: -210px;
+  height: 40%;
+  background-image: url(/resources/road.png);
+  background-size: cover;
+  z-index: 2;
+}
+
+#vocho {
+  position: relative;
+  width: 240px;
+  height: 170px;
+  top: -20%;
+  background-image: url(/resources/vocho2.png);
+  background-repeat: no-repeat;
+  /* background-position: -240px 0; */
+  z-index: 2;
+  transform: scale(0.9);
+}
+
+@keyframes spriteAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: -240px 0;
+    top: calc(-20% - 2.5px);
+  }
+  50% {
+    background-position: -480px 0;
+  }
+  75% {
+    background-position: -720px 0;
+  }
+  100% {
+    background-position: -960px 0;
+  }
+}/*# sourceMappingURL=style.css.map */
