@@ -36,6 +36,10 @@ h3 {
   color: #F7f7f7;
 }
 
+strong {
+  color: yellow;
+}
+
 main {
   width: 100%;
   position: fixed;
@@ -44,7 +48,7 @@ main {
 
 #generalContainer {
   width: 70%;
-  margin: 12% auto 0 auto;
+  margin: 4% auto 0 auto;
   height: 350px;
 }
 
@@ -55,6 +59,7 @@ main {
   font-size: 30px;
   font-weight: bold;
   color: #F7f7f7;
+  margin-bottom: 10%;
 }
 
 #intro {
@@ -102,6 +107,7 @@ main {
   position: relative;
   background: linear-gradient(#65C1EC, #EC8E63 60%);
   height: 100%;
+  overflow: hidden;
 }
 
 #ground {
@@ -117,12 +123,23 @@ main {
   position: relative;
   width: 240px;
   height: 170px;
-  top: -20%;
+  top: -17%;
   background-image: url(/resources/vocho2.png);
   background-repeat: no-repeat;
-  /* background-position: -240px 0; */
   z-index: 2;
-  transform: scale(0.9);
+  transform: scale(0.7);
+}
+
+#obstacle {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-image: url(/resources/obstacle.png);
+  top: -20px;
+  left: 90%;
+  width: 390px;
+  height: 438px;
+  z-index: 3;
+  transform: scale(0.2);
 }
 
 @keyframes spriteAnimation {
@@ -131,7 +148,7 @@ main {
   }
   25% {
     background-position: -240px 0;
-    top: calc(-20% - 2.5px);
+    top: calc(-17% - 2.5px);
   }
   50% {
     background-position: -480px 0;
@@ -141,5 +158,33 @@ main {
   }
   100% {
     background-position: -960px 0;
+  }
+}
+@keyframes groundAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1580px 0;
+  }
+}
+@keyframes obstacleAnimation {
+  0% {
+    left: 90%;
+  }
+  100% {
+    left: -15%;
+  }
+}
+@keyframes jumpAnimation {
+  0% {
+    top: -20%;
+  }
+  50% {
+    top: -60%;
+    scale: 0.58;
+  }
+  100% {
+    top: -20%;
   }
 }/*# sourceMappingURL=style.css.map */
