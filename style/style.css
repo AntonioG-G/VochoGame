@@ -114,7 +114,7 @@ main {
   position: relative;
   bottom: -210px;
   height: 40%;
-  background-image: url(/resources/road.png);
+  background-image: url(https://raw.githubusercontent.com/AntonioG-G/VochoGame/master/resources/road.png);
   background-size: cover;
   z-index: 2;
 }
@@ -124,7 +124,7 @@ main {
   width: 240px;
   height: 170px;
   top: -17%;
-  background-image: url(/resources/vocho2.png);
+  background-image: url(https://raw.githubusercontent.com/AntonioG-G/VochoGame/master/resources/vocho2.png);
   background-repeat: no-repeat;
   z-index: 2;
   transform: scale(0.7);
@@ -133,7 +133,7 @@ main {
 #obstacle {
   position: absolute;
   background-repeat: no-repeat;
-  background-image: url(/resources/obstacle.png);
+  background-image: url(https://raw.githubusercontent.com/AntonioG-G/VochoGame/master/resources/obstacle.png);
   top: -20px;
   left: 90%;
   width: 390px;
