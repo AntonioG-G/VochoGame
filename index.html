@@ -28,7 +28,7 @@
     </header>
     <div id="intro">
         <input id="text" type="text" placeholder="Introduce your Nickname" maxlength="15" required>
-        <button onclick="submitNick()">Iniciar</button>
+        <button onclick="submitNick()">Start</button>
         <h3 id="nickError" style="margin-top: 25px; visibility: hidden;">Please, introduce a valid username</h3>
     </div>
 
@@ -41,6 +41,10 @@
             </p>
             
             <div id="gameContainer">
+                <div id="fail">
+                    <h2>Ups... YOU FAIL</h2>
+                    <button onclick="retry()">Retry</button>
+                </div>
                 <div id="ground">
                     
                 </div>

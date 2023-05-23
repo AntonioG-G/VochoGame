@@ -1,7 +1,13 @@
 let gameStart = false;
+let canPlay = false;
 let points = 0;
+let tempo;
+let tempo2;
+const ground = document.getElementById("ground");
+let score = document.getElementById("score");
 let obstacle = document.getElementById("obstacle");
 let player = document.getElementById("vocho");
+let fail = document.getElementById("fail");
 
 const submitNick = () => {
   const userName = document.getElementById("text");
@@ -26,6 +32,10 @@ const fadeOut = () => {
   intro.style.animation = "fadeOut 1.2s";
   intro.addEventListener("animationend", () => {
     intro.remove();
+    canPlay = true;
+    tempo = setInterval(() => {
+      playerScore();
+    }, 250);
   });
 };
 
@@ -34,7 +44,6 @@ const playerAnimation = () => {
 };
 
 const groundAnimation = () => {
-  const ground = document.getElementById("ground");
   ground.style.animation = "groundAnimation 2s linear infinite";
 };
 
@@ -53,17 +62,39 @@ const playerJump = () => {
 };
 
 const playerScore = () => {
-  let score = document.getElementById("score");
   points++;
   score.textContent = points;
+
 };
 
 const gameLoop = () => {
     if (playerCollision()) {
-      alert("¡Colisión detectada!");
+
+      canPlay=false;
+      gameStart =false;
+      fail.style.visibility = "visible";
+      clearInterval(tempo);
+      clearInterval(tempo2);
+      ground.style.animation = 'none';
+      player.style.animation = 'none';
+      obstacle.style.animation = 'none';
+      player.style.backgroundPosition = '-960px 0';
     }
     requestAnimationFrame(gameLoop);
-  };
+};
+
+const retry = () =>{
+  player.style.backgroundPosition = '0 0';
+  gameStart = true;
+  canPlay = true;
+  points = 0;
+  fail.style.visibility = "hidden";
+  groundAnimation();
+  playerAnimation();
+  tempo = setInterval(() => {
+    playerScore();
+  }, 250);
+}
 
 const playerCollision = () => {
 const playerRect = player.getBoundingClientRect();
@@ -76,23 +107,21 @@ return (
     playerRect.y + playerRect.height > obstacleRect.y
 );
 };
-
 document.addEventListener("keydown", function(event) {
   if (event.code === "Space") {
-    if (!gameStart) {
-      groundAnimation();
-      playerAnimation();
-      obstacleAnimation();
-      setInterval(() => {
-        playerScore();
-      }, 250);
-      gameStart = true;
-      requestAnimationFrame(gameLoop);
-    } else {
-      setInterval(() => {
+    if (canPlay) {
+      if (!gameStart) {
+        groundAnimation();
+        playerAnimation();
         obstacleAnimation();
-      }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
-      playerJump();
+        gameStart = true;
+        requestAnimationFrame(gameLoop);
+      } else {
+        tempo2 = setInterval(() => {
+          obstacleAnimation();
+        }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
+        playerJump();
+      }
     }
   }
 });
